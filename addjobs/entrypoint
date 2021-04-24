@@ -1,3 +1,0 @@
-#!/bin/bash
-
-./gradlew rest --stacktrace -DbaseUrl=http://localhost:8080 -Dpattern=jobs/simple.groovy -Dusername=admin -Dpassword=admin
