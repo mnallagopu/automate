@@ -15,10 +15,10 @@ ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV JENKINS_USER admin
 ENV JENKINS_PASS admin
 COPY plugins.txt /usr/share/jenkins/ref/
-COPY addjobs/ /usr/share/jenkins/ref/addjobs/
-USER root
-RUN chmod 777 -R /usr/share/jenkins/ref/addjobs
-USER jenkins
+# COPY addjobs/ /usr/share/jenkins/ref/addjobs/
+# USER root
+# RUN chmod 777 -R /usr/share/jenkins/ref/addjobs
+# USER jenkins
 
 # COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
