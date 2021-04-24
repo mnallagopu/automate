@@ -8,8 +8,7 @@ dnf install docker-ce --nobest -y && \
 dnf clean all
 EXPOSE 8090:8080
 RUN usermod -a -G docker jenkins
-RUN usermod -aG sudo jenkins
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN echo '%docker ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER jenkins
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV JENKINS_USER admin
