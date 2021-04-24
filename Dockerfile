@@ -17,5 +17,4 @@ COPY addjobs/ /usr/share/jenkins/ref/addjobs/
 # COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
-#RUN ./usr/share/jenkins/ref/addjobs/gradlew rest -DbaseUrl=http://localhost:8080 -Dpattern=jobs/simple.groovy
-USER root
+#RUN ./usr/share/jenkins/ref/addjobs/gradlew rest -DbaseUrl=http://localhost:8080 -Dpattern=jobs/simple.groovy -Dusername=admin -Dpassword=admin
