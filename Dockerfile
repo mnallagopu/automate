@@ -8,6 +8,8 @@ dnf install docker-ce --nobest -y && \
 dnf clean all
 EXPOSE 8090:8080
 RUN usermod -a -G docker jenkins
+RUN usermod -aG sudo jenkins
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER jenkins
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 ENV JENKINS_USER admin
@@ -19,3 +21,4 @@ COPY addjobs/ /usr/share/jenkins/ref/addjobs/
 COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 #RUN ./usr/share/jenkins/ref/addjobs/gradlew rest -DbaseUrl=http://localhost:8080 -Dpattern=jobs/simple.groovy -Dusername=admin -Dpassword=admin
+CMD ["/bin/bash"]
