@@ -6,6 +6,7 @@ dnf list docker-ce && \
 dnf update && \
 dnf install docker-ce --nobest -y && \
 dnf clean all
+EXPOSE 8090:8080
 RUN usermod -a -G docker jenkins
 USER jenkins
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
